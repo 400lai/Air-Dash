@@ -35,7 +35,7 @@
 
 [点击这里观看演示视频](https://www.bilibili.com/video/BV1VPSNBfEbU/?share_source=copy_web&vd_source=459435f60d4289660b4546a7eeea3479)
 
-> 您也可以访问 [YouTube](https://www.youtube.com) 或 [Bilibili](https://www.bilibili.com) 观看更详细的游戏视频。
+> 您也可以访问 [YouTube](https://www.youtube.com) 或 [Bilibili](https://www.bilibili.com/video/BV1VPSNBfEbU/?share_source=copy_web&vd_source=459435f60d4289660b4546a7eeea3479) 观看更详细的游戏视频。
 
 ## 遇到问题？
 
