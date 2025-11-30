@@ -33,7 +33,7 @@
 
 查看游戏的演示视频，了解更多玩法与功能：
 
-[点击这里观看演示视频](https://github.com/400lai/Air-Dash/blob/main/demovideo.mp4)
+[点击这里观看演示视频](https://www.bilibili.com/video/BV1VPSNBfEbU/?share_source=copy_web&vd_source=459435f60d4289660b4546a7eeea3479)
 
 > 您也可以访问 [YouTube](https://www.youtube.com) 或 [Bilibili](https://www.bilibili.com) 观看更详细的游戏视频。
 
