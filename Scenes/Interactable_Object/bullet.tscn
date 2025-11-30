@@ -1,0 +1,102 @@
+[gd_scene load_steps=14 format=3 uid="uid://btc1bk7sasilr"]
+
+[ext_resource type="Script" uid="uid://5bdhvdrg8gm" path="res://Scripts/KillArea.gd" id="1_7j23a"]
+[ext_resource type="Script" uid="uid://btsdf1yfd4hxg" path="res://Scripts/bullet.gd" id="1_r0ury"]
+[ext_resource type="Texture2D" uid="uid://dp38bfti0vvt3" path="res://Assest/AssetBundle/Sprites/Bullet.png" id="2_i2x7n"]
+[ext_resource type="Shape2D" uid="uid://b8qfud4p4ogyt" path="res://Assest/形状资源/bullet.tres" id="3_orct8"]
+[ext_resource type="Texture2D" uid="uid://cbkr670o3wrk0" path="res://Assest/AssetBundle/Sprites/SlimerDeath.png" id="3_sq3xd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duo1x"]
+atlas = ExtResource("3_sq3xd")
+region = Rect2(0, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uou6w"]
+atlas = ExtResource("3_sq3xd")
+region = Rect2(64, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8l5s"]
+atlas = ExtResource("3_sq3xd")
+region = Rect2(128, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kbuo"]
+atlas = ExtResource("3_sq3xd")
+region = Rect2(192, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx5xo"]
+atlas = ExtResource("3_sq3xd")
+region = Rect2(256, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03otj"]
+atlas = ExtResource("3_sq3xd")
+region = Rect2(320, 0, 64, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfaky"]
+atlas = ExtResource("3_sq3xd")
+region = Rect2(384, 0, 64, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p0din"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i2x7n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duo1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uou6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8l5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kbuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx5xo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03otj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfaky")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="CharacterBody2D" groups=["dashable"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_r0ury")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_p0din")
+
+[node name="Kill" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("1_7j23a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill"]
+shape = ExtResource("3_orct8")
+
+[node name="dash_check" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = ExtResource("3_orct8")
+
+[node name="die_check" type="Area2D" parent="."]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="die_check"]
+shape = ExtResource("3_orct8")
+
+[connection signal="out_vision" from="." to="." method="die"]
+[connection signal="body_entered" from="Kill" to="Kill" method="_on_body_entered"]
+[connection signal="body_entered" from="die_check" to="." method="die"]

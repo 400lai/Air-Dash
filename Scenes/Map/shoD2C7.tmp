@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://bva27p07w63as"]
+
+[ext_resource type="Script" path="res://脚本/main.gd" id="1_46ipd"]
+[ext_resource type="TileSet" uid="uid://nf6ry4bs83h7" path="res://Tile Set/environment.tres" id="1_mssql"]
+[ext_resource type="PackedScene" uid="uid://fmivx7puk4c0" path="res://场景/KillArea.tscn" id="2_2ymvq"]
+[ext_resource type="PackedScene" uid="uid://c1ks6148h0imn" path="res://场景/spawner.tscn" id="3_fipcs"]
+[ext_resource type="PackedScene" uid="uid://8kimsk66nw7v" path="res://场景/Interactable_Object/DashBall.tscn" id="4_rw5an"]
+[ext_resource type="PackedScene" uid="uid://dttxoo6bj5dta" path="res://场景/Interactable_Object/StaticObject.tscn" id="5_ajnvy"]
+[ext_resource type="Texture2D" uid="uid://w58m4uneiexe" path="res://Sunny-land-assets-files/PNG/environment/layers/back.png" id="7_ohmp7"]
+[ext_resource type="Texture2D" uid="uid://bqjnoh5ncumdd" path="res://Sunny-land-assets-files/PNG/environment/layers/middle.png" id="8_p2aib"]
+[ext_resource type="PackedScene" uid="uid://dyfxdlx4m8lxo" path="res://场景/Interactable_Object/bullet_spawner.tscn" id="9_bogun"]
+[ext_resource type="PackedScene" uid="uid://bnhjthc8rdphp" path="res://场景/Timer.tscn" id="10_s803m"]
+
+[node name="ShowLevel" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_mssql")
+format = 2
+layer_0/tile_data = PackedInt32Array(720905, 983040, 14, 720906, 1114112, 14, 720907, 1114112, 14, 720908, 1114112, 14, 720909, 1114112, 14, 720910, 1114112, 14, 720911, 1245184, 14, 458787, 983040, 14, 524323, 983040, 14, 589859, 983040, 14, 458788, 1114112, 14, 458789, 1114112, 14, 458790, 1114112, 14, 458791, 1114112, 14, 458792, 1114112, 14, 458793, 1114112, 14, 262179, 983040, 14, 196643, 983040, 14, 131107, 983040, 14, 262180, 1114112, 14, 262181, 1114112, 14, 262182, 1114112, 14, 262183, 1114112, 14, 262184, 1114112, 14, 262185, 1245184, 14, 65571, 983040, 14, 35, 983040, 14, -65501, 983040, 14, -131037, 983040, 14, 655395, 983040, 14, 720931, 983040, 14, 786467, 983040, 14, 852003, 983040, 14, 917539, 983040, 14, 983075, 983040, 14, 1048611, 983040, 14, 1114147, 983040, 14, 1179683, 983040, 14, -196573, 983040, 14, -262109, 983040, 14, 458794, 1114112, 14, 458795, 1114112, 14, 458796, 1114112, 14, 458797, 1114112, 14, 458798, 1114112, 14, 458799, 1114112, 14, 458800, 1114112, 14, 458801, 1114112, 14, 458802, 1114112, 14, 458803, 1114112, 14, 458804, 1114112, 14, 458805, 1114112, 14, 458806, 1114112, 14, 458807, 1114112, 14, 458808, 1114112, 14, 458809, 1114112, 14, 458810, 1245184, 14, 458835, 1114112, 14, 458836, 1114112, 14, 458837, 1114112, 14, 458838, 1114112, 14, 458839, 1114112, 14, 458840, 1114112, 14, 458841, 1114112, 14, 458842, 1114112, 14, 458843, 1114112, 14, 458844, 1114112, 14, 458845, 1114112, 14, 458846, 1114112, 14, 458847, 1114112, 14, 458848, 1114112, 14, 458849, 1114112, 14, 458850, 1114112, 14, 458851, 1114112, 14, 458852, 1245184, 14, 917609, 327680, 5, 852073, 327680, 3, 786537, 327680, 3, 721001, 327680, 3, 655465, 327680, 3, 589929, 327680, 3, 524393, 327680, 3, 458857, 327680, 1, 917625, 327680, 5, 852089, 327680, 3, 786553, 327680, 3, 721017, 327680, 3, 655481, 327680, 3, 589945, 327680, 3, 524409, 327680, 3, 458873, 327680, 1, 917640, 327680, 5, 852104, 327680, 5, 786568, 327680, 5, 721032, 327680, 5, 655496, 327680, 5, 589960, 327680, 5, 524424, 65536, 5, 458888, 65536, 1, 458907, 983040, 14, 458908, 1114112, 14, 458909, 1114112, 14, 458910, 1114112, 14, 458911, 1114112, 14, 458912, 1114112, 14, 458913, 1114112, 14, 458914, 1114112, 14, 458915, 1114112, 14, 458916, 1114112, 14, 458917, 1114112, 14, 458918, 1114112, 14, 458919, 1114112, 14, 458920, 1114112, 14, 458921, 1114112, 14, 458922, 1245184, 14, 458960, 1114112, 14, 458961, 1114112, 14, 458962, 1114112, 14, 458963, 1114112, 14, 458964, 1114112, 14, 458965, 1114112, 14, 458966, 1114112, 14, 458967, 1114112, 14, 458959, 1114112, 14, 458958, 1114112, 14, 458957, 1114112, 14, 458956, 1114112, 14, 458955, 1114112, 14, 458954, 1114112, 14, 458953, 983040, 14, 458968, 1114112, 14, 458969, 1114112, 14, 458970, 1245184, 14, -261921, 196608, 3, -196385, 196608, 3, -130849, 196608, 3, -65313, 196608, 5, -130848, 196608, 3, -196384, 196608, 3, -261920, 327680, 3, -65312, 196608, 5, -65314, 196608, 5, -130850, 196608, 3, -196386, 196608, 3, -261922, 196608, 3, -130847, 196608, 3, -130846, 327680, 3, -65310, 327680, 5, -65311, 196608, 5, -196383, 196608, 1, -196382, 327680, 1, -327458, 196608, 3, -327457, 196608, 3, -327456, 327680, 3, -327459, 65536, 3, -261923, 65536, 3, -196387, 65536, 3, -130851, 65536, 3, -65315, 65536, 5, -392995, 65536, 1, -392994, 196608, 1, -392993, 196608, 1, -392992, 327680, 1, -786225, 1245184, 14, -786226, 1114112, 14, -786227, 1114112, 14, -786228, 1114112, 14, -786229, 1114112, 14, -786230, 1114112, 14, -786231, 1114112, 14, -786232, 1114112, 14, -786233, 1114112, 14, -786234, 1114112, 14, -786235, 1114112, 14, -786236, 1114112, 14, -786237, 1114112, 14, -786238, 1114112, 14, -786239, 1114112, 14, -786240, 1114112, 14, -786241, 983040, 14, 458834, 983040, 14)
+
+[node name="Test" type="Node2D" parent="."]
+script = ExtResource("1_46ipd")
+
+[node name="KillArea" parent="Test" instance=ExtResource("2_2ymvq")]
+position = Vector2(411, 321)
+
+[node name="Spawner" parent="Test" instance=ExtResource("3_fipcs")]
+position = Vector2(235, 164)
+
+[node name="BackGround" type="ParallaxBackground" parent="Test"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Test/BackGround"]
+motion_mirroring = Vector2(1500, 0)
+
+[node name="Back" type="Sprite2D" parent="Test/BackGround/ParallaxLayer"]
+position = Vector2(695, 86)
+scale = Vector2(4, 4)
+texture = ExtResource("7_ohmp7")
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Test/BackGround"]
+motion_scale = Vector2(2, 2)
+
+[node name="Middle" type="Sprite2D" parent="Test/BackGround/ParallaxLayer2"]
+visible = false
+position = Vector2(88, 280)
+texture = ExtResource("8_p2aib")
+metadata/_edit_lock_ = true
+
+[node name="Dash_Object" type="Node2D" parent="Test"]
+
+[node name="Dashobject" parent="Test/Dash_Object" instance=ExtResource("4_rw5an")]
+position = Vector2(930, 101)
+scale = Vector2(0.25, 0.25)
+
+[node name="Dashobject2" parent="Test/Dash_Object" instance=ExtResource("4_rw5an")]
+position = Vector2(2718, 97)
+scale = Vector2(0.25, 0.25)
+
+[node name="StaticObject" parent="Test/Dash_Object" instance=ExtResource("5_ajnvy")]
+position = Vector2(355, 227)
+
+[node name="StaticObject2" parent="Test/Dash_Object" instance=ExtResource("5_ajnvy")]
+position = Vector2(464, 154)
+
+[node name="StaticObject3" parent="Test/Dash_Object" instance=ExtResource("5_ajnvy")]
+position = Vector2(1815, 128)
+
+[node name="StaticObject4" parent="Test/Dash_Object" instance=ExtResource("5_ajnvy")]
+position = Vector2(2075, 127)
+
+[node name="StaticObject5" parent="Test/Dash_Object" instance=ExtResource("5_ajnvy")]
+position = Vector2(2342, 123)
+
+[node name="StaticObject6" parent="Test/Dash_Object" instance=ExtResource("5_ajnvy")]
+position = Vector2(2825, 126)
+
+[node name="StaticObject7" parent="Test/Dash_Object" instance=ExtResource("5_ajnvy")]
+position = Vector2(3645, 96)
+
+[node name="StaticObject8" parent="Test/Dash_Object" instance=ExtResource("5_ajnvy")]
+position = Vector2(3432, -138)
+
+[node name="BulletSpawner" parent="Test" instance=ExtResource("9_bogun")]
+position = Vector2(571, 97)
+
+[node name="2sTimer" parent="Test" instance=ExtResource("10_s803m")]
+
+[connection signal="timeout" from="Test/2sTimer" to="Test" method="_on_timeout"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3uahf16trail"]
+
+[ext_resource type="Texture2D" uid="uid://w58m4uneiexe" path="res://Assest/Sunny-land-assets-files/PNG/environment/layers/back.png" id="1_xmdm7"]
+[ext_resource type="Texture2D" uid="uid://bqjnoh5ncumdd" path="res://Assest/Sunny-land-assets-files/PNG/environment/layers/middle.png" id="2_di13m"]
+
+[node name="BackGround" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Back" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(478, 224)
+scale = Vector2(4, 4)
+texture = ExtResource("1_xmdm7")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(2, 2)
+
+[node name="Middle" type="Sprite2D" parent="ParallaxLayer2"]
+visible = false
+position = Vector2(88, 280)
+texture = ExtResource("2_di13m")
+metadata/_edit_lock_ = true

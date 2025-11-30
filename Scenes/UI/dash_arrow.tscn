@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh04h45gavute"]
+
+[ext_resource type="Texture2D" uid="uid://diaki8fj103e4" path="res://Assest/其他UI/箭头.png" id="1_rvldv"]
+
+[node name="DashArrow" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -72.0
+offset_right = 81.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rvldv")

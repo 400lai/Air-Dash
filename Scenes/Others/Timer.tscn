@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bnhjthc8rdphp"]
+
+[node name="2sTimer" type="Timer"]
+wait_time = 2.0
+autostart = true

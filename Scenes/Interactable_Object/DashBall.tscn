@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://8kimsk66nw7v"]
+
+[ext_resource type="Texture2D" uid="uid://bawvq5ux31ghm" path="res://Assest/形状资源/○.png" id="1_41yrt"]
+[ext_resource type="Script" uid="uid://du3ye6spjf1kp" path="res://Scripts/DashBall.gd" id="1_x7jqw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_th8bv"]
+
+[node name="Dashobject" type="CharacterBody2D" groups=["dashable"]]
+script = ExtResource("1_x7jqw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_41yrt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.8, 0.8)
+shape = SubResource("CircleShape2D_th8bv")

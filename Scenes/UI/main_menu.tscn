@@ -1,0 +1,212 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2pj2mrskarom"]
+
+[ext_resource type="Script" uid="uid://de3ljka7snphs" path="res://Scripts/main_menu.gd" id="1_wqme5"]
+[ext_resource type="FontFile" uid="uid://bilsskl0xmujo" path="res://Assest/AssetBundle/Uranus_Pixel_11Px.ttf" id="2_jewm6"]
+[ext_resource type="Texture2D" uid="uid://bkohxs1m1kmpc" path="res://Assest/主界面UI/开始游戏.png" id="3_cejvf"]
+[ext_resource type="Texture2D" uid="uid://c33ew2gncelke" path="res://Assest/主界面UI/设置.png" id="4_ru8vt"]
+[ext_resource type="Texture2D" uid="uid://sp0vedr57jtc" path="res://Assest/主界面UI/制作人员.png" id="5_ypsd1"]
+[ext_resource type="Texture2D" uid="uid://c50j4l7qjppmu" path="res://Assest/主界面UI/退出.png" id="6_xp0kt"]
+[ext_resource type="Texture2D" uid="uid://5nxulcbwwdbs" path="res://Assest/主界面UI/返回.png" id="7_1yfdm"]
+[ext_resource type="Texture2D" uid="uid://dijbljxl1tonl" path="res://Assest/主界面UI/全屏.png" id="8_3h8o7"]
+[ext_resource type="Texture2D" uid="uid://dk4pidim2aw1n" path="res://Assest/主界面UI/封面.png" id="9_q6o50"]
+[ext_resource type="AudioStream" uid="uid://b6hxhlran6vii" path="res://Assest/暂停UI/button-click.wav" id="10_46hhv"]
+
+[sub_resource type="Theme" id="Theme_rhts7"]
+
+[node name="Main_Menu" type="Node2D" node_paths=PackedStringArray("game_over_label")]
+position = Vector2(0, -31)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_wqme5")
+game_over_label = NodePath("CanvasLayer/GameOverLabel")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 774.0
+offset_top = 1162.0
+offset_right = 1459.0
+offset_bottom = 1327.0
+theme_override_colors/font_outline_color = Color(0.698039, 0.678431, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_jewm6")
+theme_override_font_sizes/font_size = 120
+text = "Game Over!"
+
+[node name="GameOverLabel2" type="Label" parent="CanvasLayer/GameOverLabel"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 105.0
+offset_right = 501.0
+offset_bottom = 185.0
+theme_override_colors/font_outline_color = Color(0.698039, 0.678431, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_jewm6")
+theme_override_font_sizes/font_size = 80
+text = "Game by Laiiiii"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_top = 596.0
+offset_right = 1920.0
+offset_bottom = 1176.0
+theme = SubResource("Theme_rhts7")
+
+[node name="MainButtons" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="play" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+icon = ExtResource("3_cejvf")
+flat = true
+icon_alignment = 1
+
+[node name="settings" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+icon = ExtResource("4_ru8vt")
+flat = true
+icon_alignment = 1
+
+[node name="credits" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+icon = ExtResource("5_ypsd1")
+flat = true
+icon_alignment = 1
+
+[node name="quit" type="Button" parent="CenterContainer/MainButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+icon = ExtResource("6_xp0kt")
+flat = true
+icon_alignment = 1
+
+[node name="SettingsMenu" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="back" type="Button" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(353, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 75
+icon = ExtResource("7_1yfdm")
+flat = true
+icon_alignment = 1
+
+[node name="fullscreen" type="CheckBox" parent="CenterContainer/SettingsMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 75
+icon = ExtResource("8_3h8o7")
+flat = true
+icon_alignment = 1
+
+[node name="mainvolslider" type="HSlider" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/mainvolslider"]
+custom_minimum_size = Vector2(484, 55)
+layout_mode = 0
+offset_left = -38.0
+offset_top = -16.0
+offset_right = 446.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 40
+text = "MAIN VOLUME"
+horizontal_alignment = 1
+
+[node name="musicvolslider" type="HSlider" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/musicvolslider"]
+custom_minimum_size = Vector2(484, 55)
+layout_mode = 0
+offset_left = -38.0
+offset_top = -16.0
+offset_right = 446.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 40
+text = "MUSIC VOLUME"
+horizontal_alignment = 1
+
+[node name="sfxvolslider" type="HSlider" parent="CenterContainer/SettingsMenu"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="CenterContainer/SettingsMenu/sfxvolslider"]
+custom_minimum_size = Vector2(484, 55)
+layout_mode = 0
+offset_left = -38.0
+offset_top = -16.0
+offset_right = 446.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 40
+text = "SFX VOLUME"
+horizontal_alignment = 1
+
+[node name="CreditsMenu" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="CenterContainer/CreditsMenu"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Produced by 
+陈淇、周相瑞、叶嘉程
+特别鸣谢：ansimuz"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="back" type="Button" parent="CenterContainer/CreditsMenu"]
+custom_minimum_size = Vector2(353, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 75
+icon = ExtResource("7_1yfdm")
+flat = true
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -4096
+offset_left = -52.0
+offset_top = -36.0
+offset_right = 1962.0
+offset_bottom = 1145.0
+mouse_filter = 2
+texture = ExtResource("9_q6o50")
+metadata/_edit_lock_ = true
+
+[node name="check" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_46hhv")
+bus = &"SFX"
+
+[connection signal="pressed" from="CenterContainer/MainButtons/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/play" to="." method="play_check"]
+[connection signal="pressed" from="CenterContainer/MainButtons/settings" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/settings" to="." method="play_check"]
+[connection signal="pressed" from="CenterContainer/MainButtons/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/credits" to="." method="play_check"]
+[connection signal="pressed" from="CenterContainer/MainButtons/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CenterContainer/MainButtons/quit" to="." method="play_check"]
+[connection signal="pressed" from="CenterContainer/SettingsMenu/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="CenterContainer/SettingsMenu/back" to="." method="play_check"]
+[connection signal="toggled" from="CenterContainer/SettingsMenu/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="value_changed" from="CenterContainer/SettingsMenu/mainvolslider" to="." method="_on_mainvolslider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/SettingsMenu/musicvolslider" to="." method="_on_musicvolslider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/SettingsMenu/sfxvolslider" to="." method="_on_sfxvolslider_value_changed"]
+[connection signal="pressed" from="CenterContainer/CreditsMenu/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="CenterContainer/CreditsMenu/back" to="." method="play_check"]

@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8ep2j7ut3cl1"]
+
+[ext_resource type="Script" uid="uid://ct5s5ipgt6jix" path="res://Scripts/pause_menu.gd" id="1_pr555"]
+[ext_resource type="Theme" uid="uid://bn3y03b3kjbhr" path="res://Assest/暂停UI/pause_theme.tres" id="2_8dpcc"]
+[ext_resource type="Texture2D" uid="uid://cv5ip3lu2i5um" path="res://Assest/暂停UI/pause_normal.png" id="3_qjk66"]
+[ext_resource type="Texture2D" uid="uid://b7ogptcel61or" path="res://Assest/暂停UI/pause_pressed.png" id="4_1yf2f"]
+[ext_resource type="Texture2D" uid="uid://1w0o1bx14j6v" path="res://Assest/暂停UI/pause_hover.png" id="5_rqg0w"]
+[ext_resource type="AudioStream" uid="uid://b6hxhlran6vii" path="res://Assest/暂停UI/button-click.wav" id="6_lsyt1"]
+
+[node name="PauseUI" type="CanvasLayer" node_paths=PackedStringArray("pause_panel", "pause_sound")]
+process_mode = 3
+script = ExtResource("1_pr555")
+pause_panel = NodePath("Control/PausePanel")
+pause_sound = NodePath("PauseSound")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8dpcc")
+
+[node name="PauseButton" type="TextureButton" parent="Control"]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_bottom = 45.0
+grow_horizontal = 0
+focus_mode = 0
+texture_normal = ExtResource("3_qjk66")
+texture_pressed = ExtResource("4_1yf2f")
+texture_hover = ExtResource("5_rqg0w")
+
+[node name="PausePanel" type="Panel" parent="Control"]
+visible = false
+layout_mode = 0
+offset_right = 962.0
+offset_bottom = 542.0
+
+[node name="ResumeButton" type="Button" parent="Control/PausePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 82.0
+offset_right = 100.0
+offset_bottom = 132.0
+grow_horizontal = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "继续游戏"
+
+[node name="QuitButton" type="Button" parent="Control/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 139.0
+offset_right = 100.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "退出游戏"
+
+[node name="BackButton" type="Button" parent="Control/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+text = "回到主菜单"
+
+[node name="PauseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lsyt1")
+
+[connection signal="pressed" from="Control/PauseButton" to="." method="pause"]
+[connection signal="pressed" from="Control/PausePanel/ResumeButton" to="." method="unpause"]
+[connection signal="pressed" from="Control/PausePanel/QuitButton" to="." method="quit_game"]
+[connection signal="pressed" from="Control/PausePanel/BackButton" to="." method="back_main_menu"]
